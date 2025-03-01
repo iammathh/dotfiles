@@ -154,8 +154,8 @@ shopt -s histappend
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER "$(history 1)" >> ~/.bash_history_eternal'
  
 # Source private rc file
-if [ -f $HOME/.privaterc ]; then
-	. $HOME/.privaterc
+if [ -f $HOME/.bashrc_private ]; then
+	. $HOME/.bashrc_private
 fi
 
 # ------------------------------ Functions -----------------------------
