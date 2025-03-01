@@ -24,6 +24,7 @@ apps=(
     git
     kubectl
     kubectx
+    vim
 )
 
 # Install each app using Homebrew
