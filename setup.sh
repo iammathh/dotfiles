@@ -21,6 +21,9 @@ apps=(
     tmux
     fzf
     direnv
+    git
+    kubectl
+    kubectx
 )
 
 # Install each app using Homebrew
