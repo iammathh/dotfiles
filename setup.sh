@@ -79,17 +79,24 @@ else
 fi
 
 # Remove existing 'k' alias if it exists
-sed -i '/^alias k=/d' $CONFIG_FILE
+sed -i '/^alias k=/d' $BASHRC_FILE
 
-# Add aliases to the shell config file if not already present
-grep -qxF "$ALIAS_CMD" $CONFIG_FILE || echo "$ALIAS_CMD" >> $CONFIG_FILE
-echo "$ALIAS_K_CMD" >> $CONFIG_FILE
+# Append the new lines to the end of the .bashrc file
+cat <<EOL >> "$BASHRC_FILE"
+
+# kubectl
+alias kubectl='kubectl --insecure-skip-tls-verify'
+alias k='kubectl'
+source <(kubectl completion bash)
+complete -o default -F __start_kubectl k
+EOL
 
 # Apply changes
-source $CONFIG_FILE
+source $BASHRC_FILE
 
 # Add direnv hook to the shell config file
-echo 'direnv allow .' >> $CONFIG_FILE
+echo 'direnv allow .' >> $BASHRC_FILE
 
+# End of script
 echo "Aliases updated successfully! You can now use 'kubectl' and 'k' with --insecure-skip-tls-verify."
 echo "Dotfiles have been successfully installed."
