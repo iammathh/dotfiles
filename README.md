@@ -42,3 +42,23 @@ From inside the `dotfiles` folder (no need to specify target with `-t ~`):
 stow -D */ -v -n       # unstow/delete all symlinks (dry run)
 stow -D */ -v          # unstow/delete all symlinks 
 ```
+
+
+---
+
+## Devcontainers with devpods
+
+To use [devpods](https://devpod.sh/) with your dotfiles, you can pass the `--dotfiles` flag when running `devpods up`. This will ensure that your dotfiles are automatically applied to the devcontainer environment.
+
+### Example
+
+```shell
+devpods up --dotfiles https://github.com/iammathh/dotfiles
+```
+
+This command will start the devcontainer and apply your dotfiles configuration.
+
+Alternatively, you can setup this option on a context wide scope:
+```shell
+devpod context set-options -o DOTFILES_URL=https://github.com/iammathh/dotfiles
+```
