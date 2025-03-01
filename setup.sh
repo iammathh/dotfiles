@@ -79,8 +79,11 @@ else
     exit 1
 fi
 
-# Remove existing 'k' alias if it exists
+# Remove all existing 'kubectl' alias if it exists
 sed -i '/^alias k=/d' $BASHRC_FILE
+sed -i '/^alias kubectl=/d' $BASHRC_FILE
+sed -i '/^source <(kubectl completion bash)/d' $BASHRC_FILE
+sed -i '/^complete -o default -F __start_kubectl k/d' $BASHRC_FILE
 
 # Append the new lines to the end of the .bashrc file
 cat <<EOL >> "$BASHRC_FILE"
