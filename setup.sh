@@ -61,7 +61,7 @@ stow */ -v -t ~
 # Install TPM (Tmux Plugin Manager)
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     echo "Installing TPM (Tmux Plugin Manager)..."
-    git git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
 fi
 
 # Define the aliases
@@ -85,11 +85,11 @@ sed -i '/^alias k=/d' $CONFIG_FILE
 grep -qxF "$ALIAS_CMD" $CONFIG_FILE || echo "$ALIAS_CMD" >> $CONFIG_FILE
 echo "$ALIAS_K_CMD" >> $CONFIG_FILE
 
-# Add direnv hook to the shell config file
-echo 'direnv allow .' >> $CONFIG_FILE
-
 # Apply changes
 source $CONFIG_FILE
+
+# Add direnv hook to the shell config file
+echo 'direnv allow .' >> $CONFIG_FILE
 
 echo "Aliases updated successfully! You can now use 'kubectl' and 'k' with --insecure-skip-tls-verify."
 echo "Dotfiles have been successfully installed."
