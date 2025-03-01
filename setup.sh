@@ -71,9 +71,9 @@ ALIAS_K_CMD="alias k='kubectl --insecure-skip-tls-verify'"
 
 # Detect shell configuration file
 if [[ $SHELL == *"zsh"* ]]; then
-    CONFIG_FILE=~/.zshrc
+    BASHRC_FILE=~/.zshrc
 elif [[ $SHELL == *"bash"* ]]; then
-    CONFIG_FILE=~/.bashrc
+    BASHRC_FILE=~/.bashrc
 else
     echo "Unsupported shell. Please manually add the aliases to your shell config."
     exit 1
