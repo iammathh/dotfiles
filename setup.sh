@@ -45,6 +45,12 @@ DOTFILES_DIR="$HOME/dotfiles"
 # Change to the dotfiles directory
 cd "$DOTFILES_DIR" || { echo "Directory $DOTFILES_DIR not found."; exit 1; }
 
+# Remove .bashrc if it exists
+if [ -f "$HOME/.bashrc" ]; then
+    echo ".bashrc found. Removing .bashrc..."
+    rm "$HOME/.bashrc"
+fi
+
 # Stow all the dotfiles 
 stow */ -v -t ~ 
 
