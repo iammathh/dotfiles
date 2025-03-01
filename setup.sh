@@ -75,6 +75,9 @@ sed -i '/^alias k=/d' $CONFIG_FILE
 grep -qxF "$ALIAS_CMD" $CONFIG_FILE || echo "$ALIAS_CMD" >> $CONFIG_FILE
 echo "$ALIAS_K_CMD" >> $CONFIG_FILE
 
+# Add direnv hook to the shell config file
+echo 'direnv allow .' >> $CONFIG_FILE
+
 # Apply changes
 source $CONFIG_FILE
 
