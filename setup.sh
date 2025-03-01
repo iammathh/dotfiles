@@ -54,6 +54,13 @@ fi
 # Stow all the dotfiles 
 stow */ -v -t ~ 
 
+
+# Install TPM (Tmux Plugin Manager)
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    echo "Installing TPM (Tmux Plugin Manager)..."
+    git git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+fi
+
 # Define the aliases
 ALIAS_CMD="alias kubectl='kubectl --insecure-skip-tls-verify'"
 ALIAS_K_CMD="alias k='kubectl --insecure-skip-tls-verify'"
