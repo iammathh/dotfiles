@@ -104,3 +104,4 @@ echo 'direnv allow .' >> $BASHRC_FILE
 # End of script
 echo "Aliases updated successfully! You can now use 'kubectl' and 'k' with --insecure-skip-tls-verify."
 echo "Dotfiles have been successfully installed."
+echo "To install tmux plugins, press 'prefix + I' in tmux."
