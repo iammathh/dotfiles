@@ -40,6 +40,8 @@ export GHREPOS="$REPOS/github.com/$GITUSER"
 export DOTFILES="$GHREPOS/dotfiles"
 export LAB="$GHREPOS/sandbox"
 
+# System
+export USER_ID=$(id -u)
 
 # ------------------------------ Aliases -----------------------------
 
