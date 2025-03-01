@@ -22,17 +22,3 @@
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
 }
-
-
-#!/bin/bash
-
-# Filepath to the devcontainer.json file
-DEVCONTAINER_FILE="/home/iammathh/Repos/github.com/iammathh/dotfiles/devcontainer.json"
-
-# Get the user ID
-USER_ID=$(id -u)
-
-# Replace ${localEnv:USER} with the user ID
-sed -i "s/\${localEnv:USER}/$USER_ID/g" "$DEVCONTAINER_FILE"
-
-echo "Replaced \${localEnv:USER} with $USER_ID in $DEVCONTAINER_FILE"
