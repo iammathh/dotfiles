@@ -95,6 +95,19 @@ source <(kubectl completion bash)
 complete -o default -F __start_kubectl k
 EOL
 
+
+# Check if the server is running Ubuntu and add bash completion if available
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    if [ "$ID" = "ubuntu" ]; then
+        if [[ -r /usr/share/bash-completion/bash_completion ]]; then
+            echo "Adding bash completion for Ubuntu..."
+            echo '[[ -r /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion' >> "$BASHRC_FILE"
+        fi
+    fi
+fi
+
+
 # Apply changes
 source $BASHRC_FILE
 
