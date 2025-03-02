@@ -79,23 +79,6 @@ else
     exit 1
 fi
 
-# Remove all existing 'kubectl' alias if it exists
-sed -i '/^alias k=/d' $BASHRC_FILE
-sed -i '/^alias kubectl=/d' $BASHRC_FILE
-sed -i '/^source <(kubectl completion bash)/d' $BASHRC_FILE
-sed -i '/^complete -o default -F __start_kubectl k/d' $BASHRC_FILE
-
-# Append the new lines to the end of the .bashrc file
-cat <<EOL >> "$BASHRC_FILE"
-
-# kubectl
-alias kubectl='kubectl --insecure-skip-tls-verify'
-alias k='kubectl'
-source <(kubectl completion bash)
-complete -o default -F __start_kubectl k
-EOL
-
-
 # Check if the server is running Ubuntu and add bash completion if available
 if [ -f /etc/os-release ]; then
     . /etc/os-release
