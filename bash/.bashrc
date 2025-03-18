@@ -102,6 +102,8 @@ alias shp='cd $REPOS/github.com/$GITUSER/selhosted-private/'
 alias shps='cd $REPOS/github.com/$GITUSER/selfhosted-private-staging/'
 alias shpp='cd $REPOS/github.com/$GITUSER/selfhosted-private-production/'
 
+#
+alias asc='scrcpy -m1024 --max-fps=60 --no-audio -K > /dev/null 2>&1 &'
 
 # ------------------------------ Ssh-Agent ---------------------------
 
